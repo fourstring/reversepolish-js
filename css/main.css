@@ -1,0 +1,15 @@
+.main-block {
+    border-style: solid;
+    border-width: thin;
+    border-radius: 15px;
+    box-shadow: 0 3px 18px rgba(0,0,0,.5);
+    width: auto;
+    height: auto;
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#computeResult {
+    height: 200px; /* bootstrap.css中有设置，用类选择器，加（0，0，1，0），这里用id选择器，加（0，1，0，0） */
+}
