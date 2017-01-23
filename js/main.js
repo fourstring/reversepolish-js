@@ -25,9 +25,11 @@ function turnReversePolish(expression) {
                 var stackTopOperator = false;
                 if ("+-*/".indexOf(i) >= 0) { //如果记号是操作符
                     do {
-                        if (compare(i, operatorStack[-1]) <= 0) {
+                        if (compare(i, operatorStack[operatorStack.length - 1]) <= 0) {
                             stackTopOperator = true;
                             echoList.push(operatorStack.pop());
+                        } else {
+                            stackTopOperator = false;
                         }
                     } while (stackTopOperator);
                     operatorStack.push(i);
@@ -93,7 +95,9 @@ function computeReversePolish(theReversePolish) {
                 document.getElementById('compute').disabled = 'disabled';
                 return;
             } else {
-                var result = eval(computeStack.shift() + marks[i] + computeStack.shift());
+                var opNumber1=computeStack.pop();
+                var opNumber2=computeStack.pop();
+                var result = eval(opNumber2 + marks[i] + opNumber1);
                 computeStack.push(result);
             }
         }
